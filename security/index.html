@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Security Livestream</title>
+        <meta name="author" content="Michael" />
+        <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <h1 id="header">Past Security Recordings</h1>
+        <div id="securityGallery"></div>
+        <div id="pagination">
+            <button id="first" title="First Page">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20,5V19L13,12M6,5V19H4V5M13,5V19L6,12" />
+                </svg>
+            </button>
+            <button id="previous" title="Previous Page">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M6,18V6H8V18H6M9.5,12L18,6V18L9.5,12Z" />
+                </svg></button
+            ><span id="pageCounter">1</span
+            ><button id="next" title="Next Page">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16,18H18V6H16M6,18L14.5,12L6,6V18Z" />
+                </svg>
+            </button>
+            <button id="last" title="Last Page">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M4,5V19L11,12M18,5V19H20V5M11,5V19L18,12" />
+                </svg>
+            </button>
+        </div>
+        <button id="refresh">Refresh</button>
+        <button id="moveToTop" style="display: none" title="Move To Top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M13,18H11V10L7.5,13.5L6.08,12.08L12,6.16L17.92,12.08L16.5,13.5L13,10V18M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"
+                    fill="#1d1d1d"
+                />
+            </svg>
+        </button>
+        <script src="./script.js"></script>
+    </body>
+</html>
