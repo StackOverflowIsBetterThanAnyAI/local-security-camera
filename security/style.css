@@ -1,0 +1,340 @@
+* {
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        margin: 32px;
+    }
+
+    #errorButton,
+    #refresh {
+        font-size: 1.125rem;
+    }
+
+    #moveToTop {
+        width: 64px;
+    }
+
+    #pagination {
+        gap: 16px;
+        width: 384px;
+    }
+
+    #pagination button {
+        padding: 2px 16px;
+        width: 64px;
+    }
+
+    #securityGallery {
+        grid-template: auto / repeat(auto-fill, minmax(256px, 1fr));
+        margin: 32px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.25rem;
+        margin: 32px;
+    }
+
+    #errorButton,
+    #refresh {
+        font-size: 1.125rem;
+    }
+
+    #moveToTop {
+        width: 64px;
+    }
+
+    #pagination {
+        gap: 16px;
+        width: min(384px, 72vw);
+    }
+
+    #pagination button {
+        padding: 2px 16px;
+        width: 64px;
+    }
+
+    #securityGallery {
+        grid-template: auto / repeat(auto-fill, minmax(256px, 1fr));
+        margin: 32px;
+    }
+}
+
+@media only screen and (max-width: 384px) {
+    h1 {
+        font-size: min(10vw, 2.25rem);
+        margin: min(10vw, 32px);
+    }
+
+    #errorButton,
+    #refresh {
+        font-size: min(7.5vw, 1rem);
+    }
+
+    #moveToTop {
+        width: min(18vw, 48px);
+    }
+
+    #pagination {
+        gap: 12px;
+        width: 80%;
+    }
+
+    #pagination button {
+        padding: 0px 8px;
+        width: 48px;
+    }
+
+    #securityGallery {
+        grid-template: auto / auto;
+        margin: min(10vw, 32px);
+    }
+}
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+h1 {
+    margin-bottom: 0px;
+    padding-bottom: 16px;
+    text-wrap: balance;
+}
+
+.gallery {
+    aspect-ratio: 16/9;
+    filter: saturate(100%) blur(0);
+    outline: #a9a9a9 solid 0px;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out, outline 0.5s ease-in-out,
+        filter 0.5s ease-in-out, z-index 0.5s ease-in-out;
+    width: 100%;
+    z-index: 1;
+}
+
+.gallery:hover {
+    cursor: pointer;
+    outline: #a9a9a9 solid 8px;
+    z-index: 999;
+}
+
+.gallery:focus {
+    box-shadow: 0px 0px 24px #000000;
+    outline: #a9a9a9 solid 8px;
+    transition: outline 0s;
+}
+
+.gallery.hovered {
+    transition: z-index 0.5s ease-in-out;
+    z-index: 999;
+}
+
+.gallery.filtered {
+    filter: saturate(0%) blur(4px);
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+#error {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 16px;
+    width: min(100%, 480px);
+}
+
+#errorButton,
+#refresh {
+    background-color: #a9a9a9;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding: 8px 16px;
+}
+
+#errorButton:disabled,
+#refresh:disabled {
+    background-color: #e5e5e5;
+    outline: rgba(169, 169, 169, 0.75) solid 2px;
+}
+
+#errorButton:hover:not(:disabled),
+#refresh:hover:not(:disabled) {
+    background-color: #888888;
+    cursor: pointer;
+}
+
+#errorButton:active:not(:disabled),
+#refresh:active:not(:disabled) {
+    background-color: #717171;
+    color: #f0f0f0;
+}
+
+#errorButton:focus-visible,
+#refresh:focus-visible {
+    outline: #888888 solid 4px;
+}
+
+#errorInfo {
+    font-size: 1rem;
+    margin: 16px;
+    margin-bottom: 0px;
+    text-align: center;
+    text-wrap: balance;
+}
+
+#modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: auto;
+    max-width: 80vw;
+}
+
+#modalBackground {
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    height: 100svh;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}
+
+#modalButton {
+    align-self: flex-end;
+    aspect-ratio: 1/1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    color: #f0f0f0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 4px;
+    padding: 4px;
+    rotate: 0deg;
+    transition: rotate 0.125s ease-in-out;
+}
+
+#modalButton:hover {
+    color: #a9a9a9;
+    cursor: pointer;
+    rotate: 45deg;
+    transition: rotate 0.125s ease-in-out;
+}
+
+#modalButton:active {
+    color: #c70a0a;
+    rotate: 90deg;
+    transition: rotate 0.125s ease-in-out;
+}
+
+#modalButton:focus-visible {
+    outline: #b1afaf solid 2px;
+}
+
+#modalCopyright {
+    color: #f0f0f0;
+    font-size: 1rem;
+    margin: 16px;
+    margin-top: 0px;
+}
+
+#modalImage {
+    margin: auto 8px;
+    max-height: 80vh;
+    max-width: 80vw;
+    object-fit: contain;
+}
+
+#modalText {
+    color: #f0f0f0;
+    font-size: 0.875rem;
+    margin: 16px;
+    margin-bottom: 0px;
+}
+
+#moveToTop {
+    background-color: rgba(169, 169, 169, 0.65);
+    border-radius: 100%;
+    bottom: 0;
+    display: none;
+    margin: 16px;
+    position: fixed;
+    right: 0;
+    z-index: 1000;
+}
+
+#moveToTop:hover {
+    background-color: rgba(169, 169, 169, 0.85);
+    cursor: pointer;
+}
+
+#moveToTop:active path {
+    fill: #c70a0a;
+}
+
+#moveToTop:focus-visible {
+    outline: #b1afaf solid 4px;
+}
+
+#pagination {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 16px auto;
+}
+
+#pagination button {
+    background-color: #a9a9a9;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+#pagination button:disabled {
+    background-color: #e5e5e5;
+    outline: rgba(169, 169, 169, 0.75) solid 2px;
+}
+
+#pagination button:hover:not(:disabled) {
+    background-color: #888888;
+    cursor: pointer;
+}
+
+#pagination button:active:not(:disabled) {
+    background-color: #717171;
+}
+
+#pagination button:active:not(:disabled) path {
+    fill: #f0f0f0;
+}
+
+#pagination button:focus-visible {
+    outline: #888888 solid 4px;
+}
+
+#pagination span {
+    font-size: 1rem;
+}
+
+#securityGallery {
+    display: grid;
+    gap: 32px;
+    margin-top: 0px;
+}
+
+#refresh {
+    margin-bottom: 64px;
+}
