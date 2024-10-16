@@ -290,6 +290,10 @@ h1 {
     outline: #b1afaf solid 4px;
 }
 
+#moveToTop > svg {
+    vertical-align: middle;
+}
+
 #pagination {
     align-items: center;
     display: flex;
