@@ -20,7 +20,7 @@ def capture_images():
                 while True:
                         image_files = sorted([f for f in os.listdir(IMAGE_FOLDER_LOCATION) if REGEX.match(f)])
 
-                        if len(image_files) >= 576:
+                        if len(image_files) >= 864:
                                 os.remove(os.path.join(IMAGE_FOLDER_LOCATION, image_files[0]))
 
                         current_time = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
@@ -30,7 +30,7 @@ def capture_images():
                         cam.capture_image(filename)
 
                         print(f'Image captured: {filename}.')
-                        print(f'{576-len(image_files)} free image slots available.')
+                        print(f'{864-len(image_files)} free image slots available.')
                         sleep(300)
 
         except KeyboardInterrupt:
